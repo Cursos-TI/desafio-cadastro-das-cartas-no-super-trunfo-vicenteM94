@@ -23,6 +23,8 @@ int main() {
     float populacao;
     float area;
     float pib;
+    float densidadePopulacional;
+    float pibPerCapita;
     int pontosTuristicos;
 
     printf("Digite o código da cidade (ex: A01): \n");
@@ -38,12 +40,17 @@ int main() {
     printf("Digite os pontos turísticos da cidade: \n");
     scanf("%d", &pontosTuristicos);
 
+    densidadePopulacional = populacao / area;
+    pibPerCapita = pib / populacao;
+
     printf("Código: %s\n", codigo);
     printf("Nome: %s\n", nome);
     printf("População: %.2f\n", populacao);
     printf("Área: %.2f\n", area);
     printf("PIB: %.2f\n", pib);
     printf("Pontos Turísticos: %d\n", pontosTuristicos);
+    printf("Densidade Populacional: %.2f\n", densidadePopulacional);
+    printf("PIB Per Capita: %.2f\n", pibPerCapita);    
 
     return 0;
 }
