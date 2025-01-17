@@ -1,56 +1,57 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
-
-int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-    
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
-
+typedef struct {
     char codigo[4];
     char nome[50];
     float populacao;
     float area;
     float pib;
+    int pontosTuristicos;
     float densidadePopulacional;
     float pibPerCapita;
-    int pontosTuristicos;
+} Cidade;
 
+void cadastrarCidade(Cidade *cidade)
+{
     printf("Digite o código da cidade (ex: A01): \n");
-    scanf("%s", codigo);
+    scanf("%s", cidade->codigo);
     printf("Digite o nome da cidade: \n");
-    scanf(" %[^\n]", nome);
+    scanf(" %[^\n]", cidade->nome);
     printf("Digite a população da cidade: \n");
-    scanf("%f", &populacao);
+    scanf("%f", &cidade->populacao);
     printf("Digite a área da cidade: \n");
-    scanf("%f", &area);
+    scanf("%f", &cidade->area);
     printf("Digite o PIB da cidade: \n");
-    scanf("%f", &pib);
+    scanf("%f", &cidade->pib);
     printf("Digite os pontos turísticos da cidade: \n");
-    scanf("%d", &pontosTuristicos);
+    scanf("%d", &cidade->pontosTuristicos);
+}
 
-    densidadePopulacional = populacao / area;
-    pibPerCapita = pib / populacao;
+void calcularDensidadePopulacional(Cidade *cidade){
+    cidade->densidadePopulacional = cidade->populacao / cidade->area;
+}
 
-    printf("Código: %s\n", codigo);
-    printf("Nome: %s\n", nome);
-    printf("População: %.2f\n", populacao);
-    printf("Área: %.2f\n", area);
-    printf("PIB: %.2f\n", pib);
-    printf("Pontos Turísticos: %d\n", pontosTuristicos);
-    printf("Densidade Populacional: %.2f\n", densidadePopulacional);
-    printf("PIB Per Capita: %.2f\n", pibPerCapita);    
+void calcularPibPerCapita(Cidade *cidade){
+    cidade->pibPerCapita = cidade->pib / cidade->populacao;
+}
 
+void exibirCidade(Cidade cidade){
+printf("Código: %s\n", cidade.codigo);
+printf("Nome: %s\n", cidade.nome);
+printf("População: %.2f\n", cidade.populacao);
+printf("Área: %.2f\n", cidade.area);
+printf("PIB: %.2f\n", cidade.pib);
+printf("Pontos Turísticos: %d\n", cidade.pontosTuristicos);
+printf("Densidade Populacional: %.2f\n", cidade.densidadePopulacional);
+printf("PIB Per Capita: %.2f\n", cidade.pibPerCapita);
+
+}
+
+int main() {
+    Cidade cidade;
+    cadastrarCidade(&cidade);
+    calcularDensidadePopulacional(&cidade);
+    calcularPibPerCapita(&cidade);
+    exibirCidade(cidade);
     return 0;
 }
