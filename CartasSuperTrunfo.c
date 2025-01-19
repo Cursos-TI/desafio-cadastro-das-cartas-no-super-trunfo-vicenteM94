@@ -59,63 +59,100 @@ float calcularSuperPoder(Carta carta){
     
 }
 
-int compararCartas(Carta carta1, Carta carta2){
-    if(carta1.populacao > carta2.populacao){
-        return 1;
-    }else if(carta1.populacao < carta2.populacao){
-        return 2;
-    }else{
-        return 0;
-    }
+int compararCartas(Carta carta1, Carta carta2) {
+    printf("População: Carta 1 (%lu) x Carta 2 (%lu)\n", carta1.populacao, carta2.populacao);
+    if (carta1.populacao > carta2.populacao)
+    {
+        printf("Carta 1 venceu\n");
+    } else if (carta1.populacao < carta2.populacao)
+        {
+            printf("Carta 2 venceu\n");
+        }
+        else
+        {
+            printf("As cartas estão empatadas\n");
+        }
 
-    if(carta1.area > carta2.area){
-        return 1;
-    }else if(carta1.area < carta2.area){
-        return 2;
-    }else{
-        return 0;
-    }
+    printf("Área: Carta 1 (%.2f) x Carta 2 (%.2f)\n", carta1.area, carta2.area);
+    if (carta1.area > carta2.area)
+    {
+        printf("Carta 1 venceu\n");
+    } else if (carta1.area < carta2.area)
+        {
+            printf("Carta 2 venceu\n");
+        }
+        else
+        {
+            printf("As cartas estão empatadas\n");
+        }
 
-    if(carta1.pib > carta2.pib){
-        return 1;
-    }else if(carta1.pib < carta2.pib){
-        return 2;
-    }else{
-        return 0;
-    }
+    printf("PIB: Carta 1 (%.2f) x Carta 2 (%.2f)\n", carta1.pib, carta2.pib);
+    if (carta1.pib > carta2.pib)
+    {
+        printf("Carta 1 venceu\n");
+    } else if (carta1.pib < carta2.pib)
+        {
+            printf("Carta 2 venceu\n");
+        }
+        else
+        {
+            printf("As cartas estão empatadas\n");
+        }
 
-    if(carta1.pontosTuristicos > carta2.pontosTuristicos){
-        return 1;
-    }else if(carta1.pontosTuristicos < carta2.pontosTuristicos){
-        return 2;
-    }else{
-        return 0;
-    }
+    printf("Pontos Turísticos: Carta 1 (%d) x Carta 2 (%d)\n", carta1.pontosTuristicos, carta2.pontosTuristicos);
+    if (carta1.pontosTuristicos > carta2.pontosTuristicos)
+    {
+        printf("Carta 1 venceu\n");
+    } else if (carta1.pontosTuristicos < carta2.pontosTuristicos)
+        {
+            printf("Carta 2 venceu\n");
+        }
+        else
+        {
+            printf("As cartas estão empatadas\n");
+        }
 
-    if(carta1.densidadePopulacional > carta2.densidadePopulacional){
-        return 1;
-    }else if(carta1.densidadePopulacional < carta2.densidadePopulacional){
-        return 2;
-    }else{
-        return 0;
-    }
+    printf("Densidade Populacional: Carta 1 (%.2f) x Carta 2 (%.2f)\n", carta1.densidadePopulacional, carta2.densidadePopulacional);
+    if (carta1.densidadePopulacional < carta2.densidadePopulacional)
+    {
+        printf("Carta 1 venceu\n");
+    } else if (carta1.densidadePopulacional > carta2.densidadePopulacional)
+        {
+            printf("Carta 2 venceu\n");
+        }
+        else
+        {
+            printf("As cartas estão empatadas\n");
+        }
 
-    if(carta1.pibPerCapita > carta2.pibPerCapita){
-        return 1;
-    }else if(carta1.pibPerCapita < carta2.pibPerCapita){
-        return 2;
-    }else{
-        return 0;
-    }
+    printf("PIB Per Capita: Carta 1 (%.5f) x Carta 2 (%.5f)\n", carta1.pibPerCapita, carta2.pibPerCapita);
+    if (carta1.pibPerCapita > carta2.pibPerCapita)
+    {
+        printf("Carta 1 venceu\n");
+    } else if (carta1.pibPerCapita < carta2.pibPerCapita)
+        {
+            printf("Carta 2 venceu\n");
+        }
+        else
+        {
+            printf("As cartas estão empatadas\n");
+        }
 
-    if(calcularSuperPoder(carta1) > calcularSuperPoder(carta2)){
-        return 1;
-    }else if(calcularSuperPoder(carta1) < calcularSuperPoder(carta2)){
-        return 2;
-    }else{
-        return 0;
+    printf("Super Poder: Carta 1 (%.2f) x Carta 2 (%.2f)\n", calcularSuperPoder(carta1), calcularSuperPoder(carta2));
+    if (calcularSuperPoder(carta1) > calcularSuperPoder(carta2))
+    {
+        printf("Carta 1 venceu\n");
+    } else if (calcularSuperPoder(carta1) < calcularSuperPoder(carta2))
+        {
+            printf("Carta 2 venceu\n");
+        }
+        else
+        {
+            printf("As cartas estão empatadas\n");
+        }
+    
+
     }
-}
 
 
 void exibirCidade(Carta cidade){
@@ -146,15 +183,4 @@ int main() {
     printf("------------------------------\n");
     compararCartas(carta1, carta2);
 
-    int comparacao = compararCartas(carta1, carta2); {
-        if(comparacao == 1){
-            printf("A carta 1 é melhor que a carta 2\n");
-        }else if(comparacao == 2){
-            printf("A carta 2 é melhor que a carta 1\n");
-        }else{
-            printf("As cartas são iguais\n");
-        }
-        
-    }
-    return 0;
 }
